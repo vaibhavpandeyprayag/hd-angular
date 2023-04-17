@@ -1,0 +1,25 @@
+<form #userForm="ngForm">
+    <h1>Login Details</h1>
+    <div class="formItemColumn">
+        <label for="email" class="formLabel">Email</label>
+        <input class="formInput" name="email" id="email" type="email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" [(ngModel)]="emailInput.email" #email="ngModel" />
+        <label id="emailMessage" [ngClass]="{'visibleMessage': email.dirty && (email.errors?.['required'] || email.errors?.['pattern']), 'hiddenMessage': email.pristine || email.valid}" >
+            <span *ngIf="email.pristine || email.valid">{{defaultMessage}}</span>
+            <span *ngIf="email.dirty && email.errors?.['required']">{{emailRequiredMessage}}</span>
+            <span *ngIf="email.errors?.['pattern']">{{emailInvalidMessage}}</span>
+        </label>
+    </div>
+    <div class="formItemColumn">
+        <label for="password" class="formLabel">Password</label>
+        <input class="formInput" name="password" id="password" type="password" minlength="8" required [(ngModel)]="emailInput.password" #password="ngModel" />
+        <label id="passwordMessage" [ngClass]="{'visibleMessage': password.dirty && (password.errors?.['required'] || password.errors?.['minlength']), 'hiddenMessage': password.pristine || password.valid}">
+            <span *ngIf="password.pristine || password.valid">{{defaultMessage}}</span>
+            <span *ngIf="password.dirty && password.errors?.['required']">{{passwordRequiredMessage}}</span>
+            <span *ngIf="password.errors?.['minlength']">{{passwordShortLengthMessage}}</span>
+        </label>
+    </div>
+    <div class="formItemRow">
+        <button class="formBtn" id="nextBtn" type="submit" (click)="next()" [disabled]="userForm.invalid">Next</button>
+        <input class="formBtn" type="reset" />
+    </div>
+</form>

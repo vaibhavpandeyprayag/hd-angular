@@ -1,0 +1,91 @@
+<!-- <form #userForm="ngForm">
+    <h1>Registration</h1>
+       
+    <div class="formItemColumn">
+        <label for="firstName" class="formLabel">First Name</label>
+        <input class="formInput" name="firstName" id="firstName" type="text" required [(ngModel)]="user.firstName" #firstName="ngModel" />
+        <label id="firstNameMessage" [ngClass]="{'visibleMessage': firstName.dirty && firstName.errors?.['required'], 'hiddenMessage': firstName.pristine || firstName.valid}" >
+            <span *ngIf="firstName.pristine || firstName.valid">{{defaultMessage}}</span>
+            <span *ngIf="firstName.dirty && firstName.errors?.['required']">{{firstNameMessage}}</span>
+        </label>
+    </div>
+    <div class="formItemColumn">
+        <label for="lastName" class="formLabel">Last Name</label>
+        <input class="formInput" name="lastName" id="lastName" type="text" required [(ngModel)]="user.lastName" #lastName="ngModel" />
+        <label id="lastNameMessage" [ngClass]="{'visibleMessage': lastName.dirty && lastName.errors?.['required'], 'hiddenMessage': lastName.pristine || lastName.valid}" >
+            <span *ngIf="lastName.pristine || lastName.valid">{{defaultMessage}}</span>
+            <span *ngIf="lastName.dirty && lastName.errors?.['required']">{{lastNameMessage}}</span>
+        </label>
+    </div>
+    <div class="formItemColumn">
+        <label for="email" class="formLabel">Email</label>
+        <input class="formInput" name="email" id="email" type="email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" [(ngModel)]="user.email" #email="ngModel" />
+        <label id="emailMessage" [ngClass]="{'visibleMessage': email.dirty && (email.errors?.['required'] || email.errors?.['pattern']), 'hiddenMessage': email.pristine || email.valid}" >
+            <span *ngIf="email.pristine || email.valid">{{defaultMessage}}</span>
+            <span *ngIf="email.dirty && email.errors?.['required']">{{emailRequiredMessage}}</span>
+            <span *ngIf="email.errors?.['pattern']">{{emailInvalidMessage}}</span>
+        </label>
+    </div>
+    <div class="formItemColumn">
+        <label for="password" class="formLabel">Password</label>
+        <input class="formInput" name="password" id="password" type="password" minlength="8" required [(ngModel)]="user.password" #password="ngModel" />
+        <label id="passwordMessage" [ngClass]="{'visibleMessage': password.dirty && (password.errors?.['required'] || password.errors?.['minlength']), 'hiddenMessage': password.pristine || password.valid}">
+            <span *ngIf="password.pristine || password.valid">{{defaultMessage}}</span>
+            <span *ngIf="password.dirty && password.errors?.['required']">{{passwordRequiredMessage}}</span>
+            <span *ngIf="password.errors?.['minlength']">{{passwordShortLengthMessage}}</span>
+        </label>
+    </div>
+    <div class="formItemRow">
+        <label class="formLabel">Date of Birth</label>
+        <input class="formInput" type="date" required [(ngModel)]="user.dob" #dob="ngModel" />
+        <label id="dobMessage" [ngClass]="{'visibleMessage': dob.dirty && dob.errors?.['required'], 'hiddenMessage': dob.pristine || dob.valid}">
+            <span *ngIf="dob.pristine || dob.valid">{{defaultMessage}}</span>
+            <span *ngIf="dob.dirty && dob.errors?.['required']">{{dobRequiredMessage}}</span>
+        </label>
+    </div>
+    <div class="formItemColumn">
+        <div class="formItemRow">
+            <label class="formLabel">Gender</label>
+            <div class="genderItem">
+                <div class="genderInput">
+                    <input name="genderRadio" id="maleRadio" type="radio" value="male" required [(ngModel)]="user.gender" #gender="ngModel" />
+                    <label class="genderLabel" for="maleRadio">Male</label>
+                </div>
+                <div class="genderInput">
+                    <input name="genderRadio" id="femaleRadio" type="radio" value="female" required [(ngModel)]="user.gender" #gender="ngModel" />
+                    <label class="genderLabel" for="femaleRadio">Female</label>
+                </div>
+                <div class="genderInput">
+                    <input name="genderRadio" id="othersRadio" type="radio" value="others" required [(ngModel)]="user.gender" #gender="ngModel" />
+                    <label class="genderLabel" for="othersRadio">Other</label>
+                </div>
+            </div>
+        </div>
+        <label id="genderMessage" [ngClass]="{'visibleMessage': gender.dirty && gender.errors?.['required'], 'hiddenMessage': gender.pristine || gender.valid}">
+            <span *ngIf="gender.pristine || gender.valid">{{defaultMessage}}</span>
+            <span *ngIf="gender.dirty && gender.errors?.['required']">{{genderRequiredMessage}}</span>
+        </label>
+    </div>
+    <div class="formItemColumn">
+        <div class="formItemRow">
+            <label class="formLabel">Country</label>
+            <select class="formInput" required [(ngModel)]="user.country" #country="ngModel">
+                <option value="">Select</option>
+                <option value="in">India</option>
+                <option value="us">United States</option>
+                <option value="cn">China</option>
+                <option value="fr">France</option>
+                <option value="ru">Russia</option>
+                <option value="de">Germany</option>
+            </select>
+        </div>
+        <label id="countryMessage" [ngClass]="{'visibleMessage': country.dirty && country.errors?.['required'], 'hiddenMessage': country.pristine || country.valid}">
+            <span *ngIf="country.pristine || country.valid">{{defaultMessage}}</span>
+            <span *ngIf="country.dirty && country.errors?.['required']">{{countryRequiredMessage}}</span>
+        </label>
+    </div>
+    <div class="formItemRow">
+        <button class="formBtn" id="registerBtn" type="submit">Register Me</button>
+        <input class="formBtn" type="reset" />
+    </div>
+</form> -->

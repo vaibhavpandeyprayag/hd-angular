@@ -1,0 +1,73 @@
+<form #userForm="ngForm" (ngSubmit)="submit()">
+    <h1>Personal Details</h1>
+    <div class="formItemColumn">
+        <label for="firstName" class="formLabel">First Name</label>
+        <input class="formInput" name="firstName" id="firstName" type="text" required [(ngModel)]="personalDetailsInput.firstName" #firstName="ngModel" />
+        <label id="firstNameMessage" [ngClass]="{'visibleMessage': firstName.dirty && firstName.errors?.['required'], 'hiddenMessage': firstName.pristine || firstName.valid}" >
+            <span *ngIf="firstName.pristine || firstName.valid">{{defaultMessage}}</span>
+            <span *ngIf="firstName.dirty && firstName.errors?.['required']">{{firstNameMessage}}</span>
+        </label>
+    </div>
+    <div class="formItemColumn">
+        <label for="lastName" class="formLabel">Last Name</label>
+        <input class="formInput" name="lastName" id="lastName" type="text" required [(ngModel)]="personalDetailsInput.lastName" #lastName="ngModel" />
+        <label id="lastNameMessage" [ngClass]="{'visibleMessage': lastName.dirty && lastName.errors?.['required'], 'hiddenMessage': lastName.pristine || lastName.valid}" >
+            <span *ngIf="lastName.pristine || lastName.valid">{{defaultMessage}}</span>
+            <span *ngIf="lastName.dirty && lastName.errors?.['required']">{{lastNameMessage}}</span>
+        </label>
+    </div>
+    <div class="formItemRow">
+        <label class="formLabel">Date of Birth</label>
+        <input class="formInput" type="date" required [(ngModel)]="personalDetailsInput.dob" #dob="ngModel" />
+        <label id="dobMessage" [ngClass]="{'visibleMessage': dob.dirty && dob.errors?.['required'], 'hiddenMessage': dob.pristine || dob.valid}">
+            <span *ngIf="dob.pristine || dob.valid">{{defaultMessage}}</span>
+            <span *ngIf="dob.dirty && dob.errors?.['required']">{{dobRequiredMessage}}</span>
+        </label>
+    </div>
+    <div class="formItemColumn">
+        <div class="formItemRow">
+            <label class="formLabel">Gender</label>
+            <div class="genderItem">
+                <div class="genderInput">
+                    <input name="genderRadio" id="maleRadio" type="radio" value="male" required [(ngModel)]="personalDetailsInput.gender" #gender="ngModel" />
+                    <label class="genderLabel" for="maleRadio">Male</label>
+                </div>
+                <div class="genderInput">
+                    <input name="genderRadio" id="femaleRadio" type="radio" value="female" required [(ngModel)]="personalDetailsInput.gender" #gender="ngModel" />
+                    <label class="genderLabel" for="femaleRadio">Female</label>
+                </div>
+                <div class="genderInput">
+                    <input name="genderRadio" id="othersRadio" type="radio" value="others" required [(ngModel)]="personalDetailsInput.gender" #gender="ngModel" />
+                    <label class="genderLabel" for="othersRadio">Other</label>
+                </div>
+            </div>
+        </div>
+        <label id="genderMessage" [ngClass]="{'visibleMessage': gender.dirty && gender.errors?.['required'], 'hiddenMessage': gender.pristine || gender.valid}">
+            <span *ngIf="gender.pristine || gender.valid">{{defaultMessage}}</span>
+            <span *ngIf="gender.dirty && gender.errors?.['required']">{{genderRequiredMessage}}</span>
+        </label>
+    </div>
+    <div class="formItemColumn">
+        <div class="formItemRow">
+            <label class="formLabel">Country</label>
+            <select class="formInput" required [(ngModel)]="personalDetailsInput.country" #country="ngModel">
+                <option value="">Select</option>
+                <option value="in">India</option>
+                <option value="us">United States</option>
+                <option value="cn">China</option>
+                <option value="fr">France</option>
+                <option value="ru">Russia</option>
+                <option value="de">Germany</option>
+            </select>
+        </div>
+        <label id="countryMessage" [ngClass]="{'visibleMessage': country.dirty && country.errors?.['required'], 'hiddenMessage': country.pristine || country.valid}">
+            <span *ngIf="country.pristine || country.valid">{{defaultMessage}}</span>
+            <span *ngIf="country.dirty && country.errors?.['required']">{{countryRequiredMessage}}</span>
+        </label>
+    </div>
+    <div class="formItemRow">
+        <button class="formBtn" id="backBtn" type="submit" (click)="back()" >Back</button>
+        <button class="formBtn" id="nextBtn" type="submit" (click)="next()" [disabled]="userForm.invalid">Next</button>
+        <input class="formBtn" type="reset" />
+    </div>
+</form>

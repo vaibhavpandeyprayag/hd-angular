@@ -1,0 +1,29 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 7rem 1.5rem 7rem;
+    background-color: rgb(0, 127, 128);
+    box-shadow: 0px 4px 12px;
+
+}
+.logoName {
+    font-size: 36px;
+    text-shadow: 2px 4px 6px;
+}
+.navMenu {
+    display: flex;
+    gap: 2rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px; 
+    text-shadow: 2px 4px 6px black;
+    
+}
+.navMenuLink {       
+    color: white;
+    text-decoration: none;
+}
+.activeNavMenuLink {
+    color: yellow;
+}
+    

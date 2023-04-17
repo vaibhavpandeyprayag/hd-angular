@@ -1,0 +1,54 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 70%;
+    margin: 5rem auto 5rem auto;
+    padding: 1rem;
+    box-shadow: 2px 2px 12px 12px lightskyblue;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.formItemColumn {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.formItemRow {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    align-items: center;
+
+}
+.formLabel {
+    font-size: 15px;
+    width: 20%;
+}
+.formInput {
+    font-size: 16px;
+    padding: 0.5rem;
+    outline: none;
+    border: 0;
+    border-bottom: 2px solid black;
+}
+.formBtn {
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: rgb(0, 119, 255);
+    border: none;
+    border-radius: 4px;
+}
+.formBtn:hover {
+    background-color: rgb(0, 90, 255);
+}
+.hiddenMessage {
+    color: red;
+    visibility: hidden;
+}
+.visibleMessage {
+    color: red;
+    visibility: visible;
+}
