@@ -12,6 +12,7 @@ import { FormsModule} from '@angular/forms';
 import { EmailInputComponent } from './email-input/email-input.component';
 import { PersonalDetailsInputComponent } from './personal-details-input/personal-details-input.component';
 import { EducationalDetailsInputComponent } from './educational-details-input/educational-details-input.component';
+import { AgreementRegisterComponent } from './agreement-register/agreement-register.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { EducationalDetailsInputComponent } from './educational-details-input/ed
     RegistrationFormComponent,
     EmailInputComponent,
     PersonalDetailsInputComponent,
-    EducationalDetailsInputComponent
+    EducationalDetailsInputComponent,
+    AgreementRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,9 @@ import { EducationalDetailsInputComponent } from './educational-details-input/ed
       {path: 'aboutus', component: AboutUsComponent},
       {path: 'contact', component: ContactComponent},
       {path: 'emailregister', component: EmailInputComponent},
-      {path: 'personaldetailsregister', component: PersonalDetailsInputComponent}
+      {path: 'personaldetailsregister', component: PersonalDetailsInputComponent},
+      {path: 'educationaldetailsregister', component: EducationalDetailsInputComponent},
+      {path: 'agreementregister', component: AgreementRegisterComponent}
     ]),
     AppRoutingModule
   ],
