@@ -2,17 +2,14 @@
     <form #agreementSubmit="ngForm" novalidate>
       <h1>Final Submit</h1>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required [(ngModel)]="agreementInput.agreement" #agreement="ngModel">
-        <label class="form-check-label" for="flexCheckDefault">
-          I agree.
+        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+        <label class="form-check-label" for="invalidCheck">
+          Agree to terms and conditions
         </label>
-        <div *ngIf="agreement.errors && (agreement.invalid || agreement.dirty)">
-          <small class="text-danger" *ngIf="agreement.dirty && agreement.errors?.['required']">Agreement check is required</small>
-        </div>
       </div>
-      <div class="form-group">
-        <button class="btn btn-primary m-1" id="backBtn" (click)="back()" >Back</button>
-        <button class="btn btn-primary m-1" id="submitBtn" (click)="submit()" [disabled]="agreementSubmit.invalid" >Submit</button>
+      <div class="btn-group mt-3">
+        <button class="btn btn-primary" id="backBtn" (click)="back()" >Back</button>
+        <button class="btn btn-primary" id="submitBtn" (click)="submit()" [disabled]="agreementSubmit.invalid" >Submit</button>
       </div>
     </form>
 </div>
