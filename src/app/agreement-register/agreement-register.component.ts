@@ -31,8 +31,8 @@ export class AgreementRegisterComponent {
 
   submit() {
     registrationData.agreement = this.agreementInput.agreement;
-    alert("Form submitted successfully.");
     window.localStorage.clear();
+
     this.router.navigate(['/home']);
   }
 }

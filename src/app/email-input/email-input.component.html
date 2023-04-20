@@ -31,9 +31,11 @@
           </div>
         </div>
       </div>      
-      <div class="btn-group mt-3" role="group">
-        <button class="btn btn-primary" (click)="next()" [disabled]="logindetails.invalid">Next</button>
-        <input class="btn btn-secondary" type="reset" />
+      <div class="form-group d-flex justify-content-between">
+        <div class="btn-group mt-3" role="group">
+          <button class="btn btn-primary" id="nextBtn" (click)="next()" [disabled]="logindetails.invalid">Next</button>   
+        </div>
+        <input class="btn btn-secondary mt-3" type="reset" />
       </div>
     </form>
   </div>

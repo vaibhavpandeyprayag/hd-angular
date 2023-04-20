@@ -13,6 +13,9 @@ import { EmailInputComponent } from './email-input/email-input.component';
 import { PersonalDetailsInputComponent } from './personal-details-input/personal-details-input.component';
 import { EducationalDetailsInputComponent } from './educational-details-input/educational-details-input.component';
 import { AgreementRegisterComponent } from './agreement-register/agreement-register.component';
+import { NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -25,11 +28,15 @@ import { AgreementRegisterComponent } from './agreement-register/agreement-regis
     EmailInputComponent,
     PersonalDetailsInputComponent,
     EducationalDetailsInputComponent,
-    AgreementRegisterComponent
+    AgreementRegisterComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderRouterModule,
     RouterModule.forRoot([
       {path: '', redirectTo: '/home', pathMatch: 'full'},
       {path: 'home', component: HomeComponent},
