@@ -1,3 +1,43 @@
-<div>
-    <h1>Services Page rendered.</h1>
+<app-header></app-header>
+<div class="container">
+    <h1>Scalable Image</h1>
+    <div class="form-group">
+        <label for="widthRange" class="form-label">Width</label>
+        <input type="range" value="{{dimensions.width}}" id="widthRange" min="0" max="400" (input)="setWidth($event)" />
+    </div>
+    <div class="form-group">
+        <label for="heightRange" class="form-label">Height</label>
+        <input type="range" id="heightRange" value="{{dimensions.height}}" min="0" max="400" (input)="setHeight($event)">
+    </div>
+    <button class="btn btn-primary" (click)="reset()">Reset</button>
+    <div>
+    <img class="" width="{{dimensions.width}}" height="{{dimensions.height}}" id="pic"
+    src="https://img.industrynine.com/ws/wheels/624314274dbe28.44642793.jpg" />
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>Items</h1>
+        <div class="d-flex align-items-center gap-3">
+            <label>Total items: {{cart.totalItems}}</label>
+            <button class="btn btn-outline-primary">SHOW CART</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" style="height: 300px;">
+            <div class="col h-100">
+                <app-item-card title="Mouse" imgUrl="https://uniquec.com/wp-content/uploads/Mouse.png"></app-item-card>
+            </div>
+            <div class="col h-100">
+                <app-item-card title="Keyboard" imgUrl="https://m.media-amazon.com/images/S/aplus-media-library-service-media/2b1da955-409b-47b9-a816-d371138619db.__CR0,0,600,450_PT0_SX600_V1___.jpg"></app-item-card>
+            </div>
+            <div class="col h-100">
+                <app-item-card title="Printer" imgUrl="https://uniquec.com/wp-content/uploads/670-Printer-600x450.png"></app-item-card>
+            </div>
+            <div class="col h-100">
+                <app-item-card title="Monitor" imgUrl="https://whiteshell.co/wp-content/uploads/2023/02/redmi-01-500x500-1.jpg"></app-item-card>
+            </div>
+        </div>
+    </div>
 </div>

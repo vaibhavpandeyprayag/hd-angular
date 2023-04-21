@@ -16,6 +16,7 @@ import { AgreementRegisterComponent } from './agreement-register/agreement-regis
 import { NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { ItemCardComponent } from './item-card/item-card.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { FooterComponent } from './shared/footer/footer.component';
     EducationalDetailsInputComponent,
     AgreementRegisterComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ItemCardComponent
   ],
   imports: [
     BrowserModule,
