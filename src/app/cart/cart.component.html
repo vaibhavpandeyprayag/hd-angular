@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="d-flex justify-content-between">
+        <h3>Your cart:</h3>
+        <h3>Total: Rs {{totalCost}}</h3>
+    </div>
+    <ul>
+        <li class="d-flex align-items-center gap-4 mt-1" *ngFor="let item of items">
+            <span>{{item.count}}</span><span>{{item.title}}</span> <span>@Rs {{item.price}}</span>
+        </li>
+    </ul>
+
+</div>

@@ -17,6 +17,8 @@ import { NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ItemCardComponent } from './item-card/item-card.component';
+import { CartComponent } from './cart/cart.component';
+import { PurchasePageComponent } from './purchase-page/purchase-page.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { ItemCardComponent } from './item-card/item-card.component';
     AgreementRegisterComponent,
     HeaderComponent,
     FooterComponent,
-    ItemCardComponent
+    ItemCardComponent,
+    CartComponent,
+    PurchasePageComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,9 @@ import { ItemCardComponent } from './item-card/item-card.component';
       {path: 'emailregister', component: EmailInputComponent},
       {path: 'personaldetailsregister', component: PersonalDetailsInputComponent},
       {path: 'educationaldetailsregister', component: EducationalDetailsInputComponent},
-      {path: 'agreementregister', component: AgreementRegisterComponent}
+      {path: 'agreementregister', component: AgreementRegisterComponent},
+      {path: 'purchase', component: PurchasePageComponent},
+      {path: 'cart', component: CartComponent},
     ]),
     AppRoutingModule
   ],

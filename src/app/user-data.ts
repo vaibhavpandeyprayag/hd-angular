@@ -19,3 +19,19 @@ export var registrationData = {
     graduationPercentage: null,
     agreement: false,
 }
+interface cartItemsInterface {
+    id: string,
+    title: string,
+    price: number,
+    count: number,
+}
+export var cartItems: cartItemsInterface[] = [
+]
+interface cartDetailsInterface {
+    totalItems: number,
+    totalCost: number,
+}
+export var cartDetails: cartDetailsInterface = {
+    totalItems: 0,
+    totalCost: 0,
+}

@@ -1,0 +1,27 @@
+<app-header></app-header>
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>Purchase</h1>
+        <div class="d-flex align-items-center gap-3">
+            <button class="btn btn-outline-primary" routerLink="/cart">CART <span>{{details.totalItems}}</span></button>
+            
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" style="height: 300px;">
+            <div class="col h-100">
+                <app-item-card title="Mouse" id="mouse" imgUrl="https://uniquec.com/wp-content/uploads/Mouse.png" price="150"></app-item-card>
+            </div>
+            <div class="col h-100">
+                <app-item-card title="Keyboard" id="keyboard" imgUrl="https://m.media-amazon.com/images/S/aplus-media-library-service-media/2b1da955-409b-47b9-a816-d371138619db.__CR0,0,600,450_PT0_SX600_V1___.jpg" price="200"></app-item-card>
+            </div>
+            <div class="col h-100">
+                <app-item-card title="Printer" id="printer" imgUrl="https://uniquec.com/wp-content/uploads/670-Printer-600x450.png" price="3000"></app-item-card>
+            </div>
+            <div class="col h-100">
+                <app-item-card title="Monitor" id="monitor" imgUrl="https://whiteshell.co/wp-content/uploads/2023/02/redmi-01-500x500-1.jpg" price="4500"></app-item-card>
+            </div>
+        </div>
+    </div>
+</div>
+

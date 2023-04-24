@@ -1,19 +1,17 @@
 import { Component } from '@angular/core';
+import { cartDetails, cartItems } from '../user-data';
 
 @Component({
   selector: 'app-services',
   templateUrl: './services.component.html',
   styleUrls: ['./services.component.css']
 })
-export class ServicesComponent {
+export class ServicesComponent {  
   dimensions = {
     width: "100",
     height: "100",
-  }
-
-  cart = {
-    totalItems: "0",
-  }
+  } 
+  
 
   setWidth(event: Event) {
     const target = event.target as HTMLButtonElement;
