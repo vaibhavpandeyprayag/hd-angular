@@ -22,7 +22,7 @@ export class ItemCardComponent {
     }
     if (idx !== -1) {
       cartItems[idx].count -= 1;
-      cartDetails.totalCost -= cartItems[idx].price;
+      cartDetails.totalCost -= +this.price;
       if (cartItems[idx].count === 0) cartItems.splice(idx, 1);
       cartDetails.totalItems -= 1;
     }
@@ -40,11 +40,12 @@ export class ItemCardComponent {
 
     if (idx !== -1) {
       cartItems[idx].count += 1; 
+      cartItems[idx].totalCost += +this.price;
       cartDetails.totalItems += 1;
       cartDetails.totalCost += cartItems[idx].price;
     }
     else {
-      cartItems.push({id: this.id, title: this.title, count: 1, price: +this.price});
+      cartItems.push({id: this.id, title: this.title, count: 1, price: +this.price, totalCost: +this.price, imgUrl: this.imgUrl});
       cartDetails.totalItems += 1;
       cartDetails.totalCost += +this.price;
     }

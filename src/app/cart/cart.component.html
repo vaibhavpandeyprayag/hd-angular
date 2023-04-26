@@ -1,11 +1,9 @@
+<app-header></app-header>
 <div class="container">
-    <div class="d-flex justify-content-between">
-        <h3>Your cart:</h3>
-        <h3>Total: Rs {{totalCost}}</h3>
-    </div>
-    <ul>
-        <li class="d-flex align-items-center gap-4 mt-1" *ngFor="let item of items">
-            <span>{{item.count}}</span><span>{{item.title}}</span> <span>@Rs {{item.price}}</span>
+    <h3>Your cart:</h3>
+    <ul class="w-100">
+        <li class="d-flex align-items-center justify-content-between mt-1 w-100" *ngFor="let item of items">
+            <app-added-item class="w-100" id="{{item.id}}" title="{{item.title}}" price="{{item.price}}" count="{{item.count}}" totalCost="{{item.totalCost}}" imgUrl="{{item.imgUrl}}"></app-added-item>
         </li>
     </ul>
 

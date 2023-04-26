@@ -8,10 +8,8 @@ import { cartDetails, cartItems } from '../user-data';
 })
 export class CartComponent {
   items: any;
-  totalCost: number;
 
   constructor() {
-    this.items = cartItems;
-    this.totalCost = cartDetails.totalCost;    
+    this.items = cartItems;  
   }
 }

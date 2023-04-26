@@ -24,6 +24,8 @@ interface cartItemsInterface {
     title: string,
     price: number,
     count: number,
+    totalCost: number,
+    imgUrl: string,
 }
 export var cartItems: cartItemsInterface[] = [
 ]
