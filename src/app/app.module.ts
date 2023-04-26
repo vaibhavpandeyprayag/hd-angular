@@ -20,6 +20,10 @@ import { ItemCardComponent } from './item-card/item-card.component';
 import { CartComponent } from './cart/cart.component';
 import { PurchasePageComponent } from './purchase-page/purchase-page.component';
 import { AddedItemComponent } from './added-item/added-item.component';
+import { FormTableComponent } from './form-table/form-table.component';
+import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -38,10 +42,14 @@ import { AddedItemComponent } from './added-item/added-item.component';
     ItemCardComponent,
     CartComponent,
     PurchasePageComponent,
-    AddedItemComponent
+    AddedItemComponent,
+    FormTableComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
     FormsModule,
     NgxUiLoaderModule,
     NgxUiLoaderRouterModule,
@@ -57,6 +65,7 @@ import { AddedItemComponent } from './added-item/added-item.component';
       {path: 'agreementregister', component: AgreementRegisterComponent},
       {path: 'purchase', component: PurchasePageComponent},
       {path: 'cart', component: CartComponent},
+      {path: 'formtable', component: FormTableComponent}
     ]),
     AppRoutingModule
   ],

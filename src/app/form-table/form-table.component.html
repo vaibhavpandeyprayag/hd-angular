@@ -1,0 +1,187 @@
+<app-header></app-header>
+<div class="container">
+    <form #educationaldetails="ngForm" novalidate>
+      <h1>Educational Details</h1>
+      
+      <div class="container">
+        <div class="row">
+          <h4>High School</h4>
+        </div>
+        <div class="row">
+          <div class="col-md col-lg-5">
+            <div class="form-group">
+              <label class="form-label">Board</label>
+              <input type="text" #highSchoolBoard="ngModel" [class.is-invalid]="highSchoolBoard.invalid && highSchoolBoard.dirty" [class.is-valid]="highSchoolBoard.valid" required
+                class="form-control" name="highSchoolBoard"
+                [(ngModel)]="educationalDetailsInput.highSchoolBoard" />
+              <div *ngIf="highSchoolBoard.errors && (highSchoolBoard.invalid || highSchoolBoard.dirty)">
+                <small class="text-danger" *ngIf="highSchoolBoard.dirty && highSchoolBoard.errors?.['required']">Board is required</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-md col-lg-5">
+            <div class="form-group">
+              <label class="form-label">School</label>
+              <input type="text" #highSchoolSchool="ngModel" [class.is-invalid]="highSchoolSchool.invalid && highSchoolSchool.dirty" [class.is-valid]="highSchoolSchool.valid" required
+                class="form-control" name="highSchoolSchool"
+                [(ngModel)]="educationalDetailsInput.highSchoolSchool" />
+              <div *ngIf="highSchoolSchool.errors && (highSchoolSchool.invalid || highSchoolSchool.dirty)">
+                <small class="text-danger" *ngIf="highSchoolSchool.dirty && highSchoolSchool.errors?.['required']">School name is required</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-md col-lg-2">
+            <div class="form-group">
+              <label class="form-label">Percentage</label>
+              <input type="number" min="0" max="100" #highSchoolPercentage="ngModel" [class.is-invalid]="highSchoolPercentage.invalid && highSchoolPercentage.dirty" [class.is-valid]="highSchoolPercentage.valid" required
+                class="form-control" name="highSchoolPercentage"
+                [(ngModel)]="educationalDetailsInput.highSchoolPercentage" />
+              <div *ngIf="highSchoolPercentage.errors && (highSchoolPercentage.invalid || highSchoolPercentage.dirty)">
+                <small class="text-danger" *ngIf="highSchoolPercentage.dirty && highSchoolPercentage.errors?.['required']">Percentage is required</small>
+                <small class="text-danger" *ngIf="highSchoolPercentage.dirty && (highSchoolPercentage.errors?.['min'] || highSchoolPercentage.errors?.['max'])">Enter valid percentage</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <h4>Intermediate</h4>
+        </div>
+        <div class="row">
+          <div class="col-md col-lg-5">
+            <div class="form-group">
+              <label class="form-label">Board</label>
+              <input type="text" #intermediateBoard="ngModel" [class.is-invalid]="intermediateBoard.invalid && intermediateBoard.dirty" [class.is-valid]="intermediateBoard.valid" required
+                class="form-control" name="intermediateBoard"
+                [(ngModel)]="educationalDetailsInput.intermediateBoard" />
+              <div *ngIf="intermediateBoard.errors && (intermediateBoard.invalid || intermediateBoard.dirty)">
+                <small class="text-danger" *ngIf="intermediateBoard.dirty && intermediateBoard.errors?.['required']">Board is required</small>
+              </div>
+          </div>
+          </div>
+          <div class="col-md col-lg-5">
+            <div class="form-group">
+              <label class="form-label">School</label>
+              <input type="text" #intermediateSchool="ngModel" [class.is-invalid]="intermediateSchool.invalid && intermediateSchool.dirty" [class.is-valid]="intermediateSchool.valid" required
+                class="form-control" name="intermediateSchool"
+                [(ngModel)]="educationalDetailsInput.intermediateSchool" />
+              <div *ngIf="intermediateSchool.errors && (intermediateSchool.invalid || intermediateSchool.dirty)">
+                <small class="text-danger" *ngIf="intermediateSchool.dirty && intermediateSchool.errors?.['required']">School name is required</small>
+              </div>
+          </div>
+          </div>
+          <div class="col-md col-lg-2">
+            <div class="form-group">
+              <label class="form-label">Percentage</label>
+              <input type="number" min="0" max="100" #intermediatePercentage="ngModel" [class.is-invalid]="intermediatePercentage.invalid && intermediatePercentage.dirty" [class.is-valid]="intermediatePercentage.valid" required
+                class="form-control" name="intermediatePercentage"
+                [(ngModel)]="educationalDetailsInput.intermediatePercentage" />
+              <div *ngIf="intermediatePercentage.errors && (intermediatePercentage.invalid || intermediatePercentage.dirty)">
+                <small class="text-danger" *ngIf="intermediatePercentage.dirty && intermediatePercentage.errors?.['required']">Percentage is required</small>
+                <small class="text-danger" *ngIf="intermediatePercentage.dirty && (intermediatePercentage.errors?.['min'] || intermediatePercentage.errors?.['max'])">Enter valid percentage</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <h4>Graduation</h4>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <div class="form-group">
+              <label class="form-label">University Name</label>
+              <input type="text" #universityName="ngModel" [class.is-invalid]="universityName.invalid && universityName.dirty" [class.is-valid]="universityName.valid" required
+                class="form-control" name="universityName"
+                [(ngModel)]="educationalDetailsInput.universityName" />
+              <div *ngIf="universityName.errors && (universityName.invalid || universityName.dirty)">
+                <small class="text-danger" *ngIf="universityName.dirty && universityName.errors?.['required']">University name is required</small>
+              </div>
+          </div>
+          </div>
+          <div class="col-md">
+            <div class="form-group">
+              <label class="form-label">Course</label>
+              <input type="text" #graduationCourse="ngModel" [class.is-invalid]="graduationCourse.invalid && graduationCourse.dirty" [class.is-valid]="graduationCourse.valid" required
+                class="form-control" name="graduationCourse"
+                [(ngModel)]="educationalDetailsInput.graduationCourse" />
+              <div *ngIf="graduationCourse.errors && (graduationCourse.invalid || graduationCourse.dirty)">
+                <small class="text-danger" *ngIf="graduationCourse.dirty && graduationCourse.errors?.['required']">Course is required</small>
+              </div>
+          </div>
+          </div>
+          <div class="col-md">
+            <div class="form-group">
+              <label class="form-label">Branch/Stream</label>
+              <input type="text" #graduationBranch="ngModel" [class.is-invalid]="graduationBranch.invalid && graduationBranch.dirty" [class.is-valid]="graduationBranch.valid" required
+                class="form-control" name="graduationBranch"
+                [(ngModel)]="educationalDetailsInput.graduationBranch" />
+              <div *ngIf="graduationBranch.errors && (graduationBranch.invalid || graduationBranch.dirty)">
+                <small class="text-danger" *ngIf="graduationBranch.dirty && graduationBranch.errors?.['required']">School name is required</small>
+              </div>
+          </div>
+          </div>
+          <div class="col-md col-lg-2">
+            <div class="form-group">
+              <label class="form-label">Percentage</label>
+              <input type="number" min="0" max="100" #graduationPercentage="ngModel" [class.is-invalid]="graduationPercentage.invalid && graduationPercentage.dirty" [class.is-valid]="graduationPercentage.valid" required
+                class="form-control" name="graduationPercentage"
+                [(ngModel)]="educationalDetailsInput.graduationPercentage" />
+              <div *ngIf="graduationPercentage.errors && (graduationPercentage.invalid || graduationPercentage.dirty)">
+                <small class="text-danger" *ngIf="graduationPercentage.dirty && graduationPercentage.errors?.['required']">Percentage is required</small>
+                <small class="text-danger" *ngIf="graduationPercentage.dirty && (graduationPercentage.errors?.['min'] || graduationPercentage.errors?.['max'])">Enter valid percentage</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group d-flex gap-5">
+      <button class="btn btn-primary mt-3" type="submit" (click)="submit()" >Submit</button>
+      <input class="btn btn-secondary mt-3" type="reset" (click)="reset()" />
+    </div>
+    </form>
+    <div *ngIf="submitted" class="mt-5">
+        <h3>Submitted: </h3>
+        <table class="table">
+            <tr>
+                <th scope="col" colspan="12" class="text-center bg-light">High School</th>
+            </tr>
+            <tr>
+                <th scope="col" colspan="4" class="text-center bg-danger">Board</th>
+                <th scope="col" colspan="4" class="text-center bg-success">Institution</th>
+                <th scope="col" colspan="4" class="text-center bg-warning">Percentage</th>
+            </tr>
+            <tr>
+                <td scope="col" colspan="4" class="text-center bg-danger">{{educationalDetailsInput.highSchoolBoard}}</td>
+                <td scope="col" colspan="4" class="text-center bg-success">{{educationalDetailsInput.highSchoolSchool}}</td>
+                <td scope="col" colspan="4" class="text-center bg-warning">{{educationalDetailsInput.highSchoolPercentage}}</td>
+            </tr>
+            <tr class="">
+                <th scope="col" colspan="12" class="text-center bg-light">Intermediate</th>
+            </tr>
+            <tr>
+                <th scope="col" colspan="4" class="text-center bg-danger">Board</th>
+                <th scope="col" colspan="4" class="text-center bg-success">Institution</th>
+                <th scope="col" colspan="4" class="text-center bg-warning">Percentage</th>
+            </tr>
+            <tr>
+                <td scope="col" colspan="4" class="text-center bg-danger">{{educationalDetailsInput.intermediateBoard}}</td>
+                <td scope="col" colspan="4" class="text-center bg-success">{{educationalDetailsInput.intermediateSchool}}</td>
+                <td scope="col" colspan="4" class="text-center bg-warning">{{educationalDetailsInput.intermediatePercentage}}</td>
+            </tr>
+            <tr class="">
+                <th scope="col" colspan="12" class="text-center bg-light">Graduation</th>
+            </tr>
+            <tr>
+                <th scope="col" colspan="3" class="text-center bg-danger">University</th>
+                <th scope="col" colspan="3" class="text-center bg-success">Course</th>
+                <th scope="col" colspan="3" class="text-center bg-warning">Branch/Stream</th>
+                <th scope="col" colspan="3" class="text-center bg-success">Percentage</th>
+            </tr>
+            <tr>
+                <td scope="col" colspan="3" class="text-center bg-danger">{{educationalDetailsInput.universityName}}</td>
+                <td scope="col" colspan="3" class="text-center bg-success">{{educationalDetailsInput.graduationCourse}}</td>
+                <td scope="col" colspan="3" class="text-center bg-warning">{{educationalDetailsInput.graduationBranch}}</td>
+                <td scope="col" colspan="3" class="text-center bg-success">{{educationalDetailsInput.graduationPercentage}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
