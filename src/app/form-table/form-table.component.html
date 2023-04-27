@@ -133,55 +133,61 @@
           </div>
         </div>
       </div>
-      <div class="form-group d-flex gap-5">
-      <button class="btn btn-primary mt-3" type="submit" (click)="submit()" >Submit</button>
-      <input class="btn btn-secondary mt-3" type="reset" (click)="reset()" />
-    </div>
+      <div class="form-group d-flex gap-5 justify-content-end">
+        <input class="btn btn-secondary mt-3 d-none" type="reset" id="resetButton" />
+        <button class="btn btn-primary mt-3" type="submit" (click)="save()" >Save</button>
+      </div>
     </form>
     <div *ngIf="submitted" class="mt-5">
         <h3>Submitted: </h3>
-        <table class="table">
-            <tr>
-                <th scope="col" colspan="12" class="text-center bg-light">High School</th>
-            </tr>
-            <tr>
-                <th scope="col" colspan="4" class="text-center bg-danger">Board</th>
-                <th scope="col" colspan="4" class="text-center bg-success">Institution</th>
-                <th scope="col" colspan="4" class="text-center bg-warning">Percentage</th>
-            </tr>
-            <tr>
-                <td scope="col" colspan="4" class="text-center bg-danger">{{educationalDetailsInput.highSchoolBoard}}</td>
-                <td scope="col" colspan="4" class="text-center bg-success">{{educationalDetailsInput.highSchoolSchool}}</td>
-                <td scope="col" colspan="4" class="text-center bg-warning">{{educationalDetailsInput.highSchoolPercentage}}</td>
-            </tr>
-            <tr class="">
-                <th scope="col" colspan="12" class="text-center bg-light">Intermediate</th>
-            </tr>
-            <tr>
-                <th scope="col" colspan="4" class="text-center bg-danger">Board</th>
-                <th scope="col" colspan="4" class="text-center bg-success">Institution</th>
-                <th scope="col" colspan="4" class="text-center bg-warning">Percentage</th>
-            </tr>
-            <tr>
-                <td scope="col" colspan="4" class="text-center bg-danger">{{educationalDetailsInput.intermediateBoard}}</td>
-                <td scope="col" colspan="4" class="text-center bg-success">{{educationalDetailsInput.intermediateSchool}}</td>
-                <td scope="col" colspan="4" class="text-center bg-warning">{{educationalDetailsInput.intermediatePercentage}}</td>
-            </tr>
-            <tr class="">
-                <th scope="col" colspan="12" class="text-center bg-light">Graduation</th>
-            </tr>
-            <tr>
-                <th scope="col" colspan="3" class="text-center bg-danger">University</th>
-                <th scope="col" colspan="3" class="text-center bg-success">Course</th>
-                <th scope="col" colspan="3" class="text-center bg-warning">Branch/Stream</th>
-                <th scope="col" colspan="3" class="text-center bg-success">Percentage</th>
-            </tr>
-            <tr>
-                <td scope="col" colspan="3" class="text-center bg-danger">{{educationalDetailsInput.universityName}}</td>
-                <td scope="col" colspan="3" class="text-center bg-success">{{educationalDetailsInput.graduationCourse}}</td>
-                <td scope="col" colspan="3" class="text-center bg-warning">{{educationalDetailsInput.graduationBranch}}</td>
-                <td scope="col" colspan="3" class="text-center bg-success">{{educationalDetailsInput.graduationPercentage}}</td>
-            </tr>
-        </table>
+        <div *ngFor="let values of valuesList" class="border border-primary m-1 p-2">
+          <div class="d-flex gap-3 justify-content-end mb-3">
+            <button class="btn btn-outline-secondary" (click)="edit(values.id)">Edit</button>
+            <button class="btn btn-outline-danger" (click)="remove(values.id)">Remove</button>
+          </div>
+          <table class="table table-bordered">
+              <tr>
+                  <th colspan="12" class="text-center bg-light">High School</th>
+              </tr>
+              <tr  class="table-bordered">
+                  <th colspan="4" class="text-center table-primary">Board</th>
+                  <th colspan="4" class="text-center">Institution</th>
+                  <th colspan="4" class="text-center">Percentage</th>
+              </tr>
+              <tr>
+                  <td colspan="4" class="text-center">{{values.highSchoolBoard}}</td>
+                  <td colspan="4" class="text-center">{{values.highSchoolSchool}}</td>
+                  <td colspan="4" class="text-center">{{values.highSchoolPercentage}}</td>
+              </tr>
+              <tr class="">
+                  <th  colspan="12" class="text-center bg-light">Intermediate</th>
+              </tr>
+              <tr>
+                  <th colspan="4" class="text-center">Board</th>
+                  <th colspan="4" class="text-center">Institution</th>
+                  <th colspan="4" class="text-center">Percentage</th>
+              </tr>
+              <tr>
+                  <td colspan="4" class="text-center">{{values.intermediateBoard}}</td>
+                  <td colspan="4" class="text-center">{{values.intermediateSchool}}</td>
+                  <td colspan="4" class="text-center">{{values.intermediatePercentage}}</td>
+              </tr>
+              <tr class="">
+                  <th colspan="12" class="text-center bg-light">Graduation</th>
+              </tr>
+              <tr>
+                  <th colspan="3" class="text-center">University</th>
+                  <th colspan="3" class="text-center">Course</th>
+                  <th colspan="3" class="text-center">Branch/Stream</th>
+                  <th colspan="3" class="text-center">Percentage</th>
+              </tr>
+              <tr>
+                  <td colspan="3" class="text-center">{{values.universityName}}</td>
+                  <td colspan="3" class="text-center">{{values.graduationCourse}}</td>
+                  <td colspan="3" class="text-center">{{values.graduationBranch}}</td>
+                  <td colspan="3" class="text-center">{{values.graduationPercentage}}</td>
+              </tr>
+          </table>
+      </div>
     </div>
 </div>

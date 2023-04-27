@@ -24,6 +24,7 @@ import { FormTableComponent } from './form-table/form-table.component';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EducationalDetailsItemComponent } from './educational-details-item/educational-details-item.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CartComponent,
     PurchasePageComponent,
     AddedItemComponent,
-    FormTableComponent
+    FormTableComponent,
+    EducationalDetailsItemComponent
   ],
   imports: [
     BrowserModule,
