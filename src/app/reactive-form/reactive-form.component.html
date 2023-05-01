@@ -1,0 +1,28 @@
+<app-header></app-header>
+<div style="position: fixed; right: 2rem;">
+    <pre>{{myForm.controls.name.value}}</pre>
+    <pre>{{myForm.controls.email.value}}</pre>
+    <pre>{{myForm.controls.dob.value}}</pre>
+</div>
+<form [formGroup]="myForm">
+    <div class="d-flex gap-3 w-100 m-1 align-items-center bg-warning">
+        <label for="name" style="width: 12rem;">Name:</label>
+        <input id="name" class="w-25" type="text" formControlName="name" />
+        <button class="btn btn-outline-primary btn-sm" (click)="setName()">Set Value</button>
+    </div>
+    <div class="d-flex gap-3 w-100 m-1 align-items-center bg-warning">
+        <label for="email" style="width: 12rem;">Email:</label>
+        <input id="email" class="w-25" type="email" formControlName="email" />
+        <button class="btn btn-outline-primary btn-sm" (click)="setEmail()">Set Value</button>
+    </div>
+    <div class="d-flex gap-3 w-100 m-1 align-items-center bg-warning">
+        <label for="dob" style="width: 12rem;">Date of Birth:</label>
+        <input id="dob" class="w-25" type="date" formControlName="dob" />
+        <button class="btn btn-outline-primary btn-sm" (click)="setDob()">Set Value</button>
+    </div>
+    <div class="d-flex gap-3 w-100 m-1 align-items-center bg-warning">
+        <label for="language" style="width: 12rem;">Language:</label>
+        <input id="language" class="w-25" type="date" formControlName="language" />
+        <button class="btn btn-outline-primary btn-sm" (click)="setLanguage()">Set Value</button>
+    </div>
+</form>

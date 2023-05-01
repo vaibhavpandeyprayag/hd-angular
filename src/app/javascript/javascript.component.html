@@ -1,0 +1,146 @@
+<div class="container">
+    <h1 class="mb-5">JavaScript</h1>
+    <div class="letKeyword ">
+        <h4>let keyword</h4>
+            <div class="d-flex gap-2 align-items-center">
+                <label>xBy1 = {{letX.xBy1}}</label>
+                <label>xBy2 = {{letX.xBy2}}</label>
+                <button class="btn btn-outline-primary" (click)="increaseLetX()">Increase</button>
+            </div> 
+        <p>Both the increment operations are done by declaring variables of same name in different scopes.</p>
+            <pre>               
+    increaseX() &lbrace;
+        &lbrace;
+            let x = this.letX.xBy1;
+            x++;
+            this.letX.xBy1 = x;
+        &rbrace;
+        &lbrace;
+            let x = this.letX.xBy2;
+            x += 2;
+            this.letX.xBy2 = x;
+        &rbrace;
+    &rbrace;
+            </pre>
+    </div>
+    <div class="cosntKeyword ">
+        <h4>const keyword</h4>
+            <div class="d-flex gap-2 align-items-center">
+                <label>letX = {{constX.xLet}}</label>
+                <label>constX = {{constX.xConst}}</label>
+                <button class="btn btn-outline-primary" (click)="increaseConstX()">Increase</button>
+            </div> 
+        <p> First x can be increased as it is declared using let keyword, but the second one declared using const keyword. Therefore, increasing second one raises error.</p>
+            <pre>               
+    increaseConstX()  &lbrace;
+        &lbrace;
+            let x = this.constX.xLet;
+            x++;
+            this.constX.xLet = x;
+        &rbrace;
+        &lbrace;
+            const x = this.constX.xConst;
+            // x++ => gives error
+        &rbrace;
+    &rbrace;
+            </pre>
+    </div>
+    <div class="arrowFunction ">
+        <h4>arrow function</h4>
+            <div class="d-flex gap-2 align-items-center">                
+                <label>Power of 5: {{powerOf5}}</label>
+                <button class="btn btn-outline-primary" (click)="calcNextPower()">Next Power</button>
+            </div> 
+        <p>Used arrow function to calculate next power of 5.</p>
+            <pre>               
+    calcNextPower = () => this.powerOf5 = 5 * this.powerOf5;
+            </pre>
+    </div>
+    <div class="spreadOperator ">
+        <h4>arrow function</h4>
+            <div class="d-flex gap-2 align-items-center">                
+                <div class="originalObject">
+                    <h6>Original Object</h6>
+                    <pre>
+    <label>Name: {{originalObject.name}}</label>
+    <label>Age: {{originalObject.age}}</label>
+    <label>Height: {{originalObject.height}}</label>
+                    </pre>
+                </div>
+                <div class="spreadObject">
+                    <h6>New Object</h6>
+                    <pre>
+    <label>Name: {{spreadObject.name}}</label>
+    <label>Age: {{spreadObject.age}}</label>
+    <label>Height: {{spreadObject.height}}</label>
+                    </pre>
+                </div>
+                <button class="btn btn-outline-primary" (click)="spreadProperties()">Spread Properties</button>
+                <button class="btn btn-outline-dark" (click)="resetProperties()">Reset</button>
+            </div> 
+        <p>Used spread operator to copy properties of one object into another.</p>
+            <pre>               
+    originalObject = &lbrace;name: "Ram", age: "52", height: "1.6m"&rbrace;;
+    spreadObject = &lbrace;name: "", age: "", height: ""&rbrace;;
+    
+    spreadProperties = () => this.spreadObject = &lbrace;...this.originalObject&rbrace;;
+    resetProperties = () => this.spreadObject = &lbrace;name: "", age: "", height: ""&rbrace;;
+            </pre>
+    </div>
+    <div class="forOfLoop ">
+        <h4>for/of Loop</h4>
+            <div class="">                
+                <pre>Digits: {{digitsString}}</pre>
+                <button class="btn btn-outline-primary" (click)="digitsToString()">Append Digits</button>
+            </div> 
+        <p>Used for/of loop to append digits to a string</p>
+            <pre>               
+    digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+    digitsString = "";
+    digitsToString() &lbrace;
+        for (let d of this.digits) this.digitsString += d;
+        return this.digitsString;
+    &rbrace;
+            </pre>
+    </div>
+    <div class="map">
+        <h4>Map</h4>
+            <div class="d-flex gap-2 align-items-center">                
+                <label>Key: </label>
+                <select (input)="showValue($event)">
+                    <option value="fruit" selected>fruit</option>
+                    <option value="vegetable">vegetable</option>
+                    <option value="shape">shape</option>
+                    <option value="company">company</option>
+                    <option value="place">place</option>
+                </select>
+                <label>Value: {{valueSelected}}</label>
+            </div> 
+            <p>Used map to store key-value pairs and used Select input to choose key.</p>
+            <pre>               
+    map = new Map([["fruit", "apple"],["shape", "cube"],["vegetable", "tomato"], ["company", "humanitics"], ["place", "noida"]]);
+    valueSelected = this.map.get("fruit");
+    showValue(event: Event) &lbrace;
+        let target = event.target as HTMLSelectElement;
+        this.valueSelected = this.map.get(target.value);
+    &rbrace;
+            </pre>
+    </div>
+    <div class="promise">
+        <h4>Promises</h4>
+            <div>
+                <pre>Quote: {{quote}}</pre>
+                <button class="btn btn-outline-primary" (click)="showQuote()">Show Quote</button>
+            </div> 
+            <p>Used promises to display quote after 3 seconds.</p>
+            <pre>               
+    quote = "";
+    showQuote() &lbrace;
+        this.quote = "Loading..."
+        const promise = new Promise((resolve, reject) => &lbrace;
+        setTimeout(() => this.quote = "Somethings are better left unsaid.", 3000);
+        &rbrace;)
+    &rbrace;
+            </pre>
+    </div>
+</div>

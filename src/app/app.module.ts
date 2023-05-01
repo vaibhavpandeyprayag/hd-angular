@@ -8,7 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactComponent } from './contact/contact.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { EmailInputComponent } from './email-input/email-input.component';
 import { PersonalDetailsInputComponent } from './personal-details-input/personal-details-input.component';
 import { EducationalDetailsInputComponent } from './educational-details-input/educational-details-input.component';
@@ -24,7 +24,10 @@ import { FormTableComponent } from './form-table/form-table.component';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { EducationalDetailsItemComponent } from './educational-details-item/educational-details-item.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { CarouselComponent } from './carousel/carousel.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { JavascriptComponent } from './javascript/javascript.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,9 @@ import { EducationalDetailsItemComponent } from './educational-details-item/educ
     PurchasePageComponent,
     AddedItemComponent,
     FormTableComponent,
-    EducationalDetailsItemComponent
+    ReactiveFormComponent,
+    CarouselComponent,
+    JavascriptComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +58,8 @@ import { EducationalDetailsItemComponent } from './educational-details-item/educ
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
     FormsModule,
+    ReactiveFormsModule,
+    CarouselModule,
     NgxUiLoaderModule,
     NgxUiLoaderRouterModule,
     RouterModule.forRoot([
@@ -67,7 +74,10 @@ import { EducationalDetailsItemComponent } from './educational-details-item/educ
       {path: 'agreementregister', component: AgreementRegisterComponent},
       {path: 'purchase', component: PurchasePageComponent},
       {path: 'cart', component: CartComponent},
-      {path: 'formtable', component: FormTableComponent}
+      {path: 'formtable', component: FormTableComponent},
+      {path: 'carousel', component: CarouselComponent},
+      {path: 'js', component: JavascriptComponent},
+      {path: 'reactiveform', component: ReactiveFormComponent}
     ]),
     AppRoutingModule
   ],
