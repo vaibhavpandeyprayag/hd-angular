@@ -3,26 +3,82 @@
     <pre>{{myForm.controls.name.value}}</pre>
     <pre>{{myForm.controls.email.value}}</pre>
     <pre>{{myForm.controls.dob.value}}</pre>
+    <pre>{{myForm.controls.language.value}}</pre>
 </div>
-<form [formGroup]="myForm">
-    <div class="d-flex gap-3 w-100 m-1 align-items-center bg-warning">
-        <label for="name" style="width: 12rem;">Name:</label>
-        <input id="name" class="w-25" type="text" formControlName="name" />
-        <button class="btn btn-outline-primary btn-sm" (click)="setName()">Set Value</button>
+<form class="container" [formGroup]="myForm">
+    <div class="d-flex flex-column gap-1 w-100">
+        <label for="name">Name:</label>   
+        <input id="name" class="p-1 border" type="text" formControlName="name" />
+        <div [ngClass]="{'visible': name?.dirty && name?.errors, 'invisible': name?.pristine || name?.valid}">
+            <label class="text-danger" style="font-size: 12px;" *ngIf="name?.pristine || name?.valid">{{defaultMsg}}</label>
+            <label class="text-danger" style="font-size: 12px;" *ngIf=" name?.dirty && name?.errors?.['required']">
+                Name is required.
+            </label>
+            <label class="text-danger" style="font-size: 12px;" *ngIf=" name?.dirty && name?.errors?.['minlength']">
+                Name must be at least 3 characters long.
+            </label>
+        </div>    
     </div>
-    <div class="d-flex gap-3 w-100 m-1 align-items-center bg-warning">
-        <label for="email" style="width: 12rem;">Email:</label>
-        <input id="email" class="w-25" type="email" formControlName="email" />
-        <button class="btn btn-outline-primary btn-sm" (click)="setEmail()">Set Value</button>
+    <div class="d-flex flex-column gap-1 w-100">
+            <label for="email">Email:</label>
+        <input id="email" class="p-1 border" type="email" formControlName="email" />
+        <div [ngClass]="{'visible': email?.dirty && email?.errors, 'invisible': email?.pristine || email?.valid}">
+            <label class="text-danger" style="font-size: 12px;" *ngIf="email?.pristine || email?.valid">{{defaultMsg}}</label>
+            <label class="text-danger" style="font-size: 12px;" *ngIf=" email?.dirty && email?.errors?.['required']">
+                Email is required.
+            </label>
+            <label class="text-danger" style="font-size: 12px;" *ngIf=" email?.dirty && email?.errors?.['email']">
+                Enter valid email.
+            </label>
+        </div>
     </div>
-    <div class="d-flex gap-3 w-100 m-1 align-items-center bg-warning">
-        <label for="dob" style="width: 12rem;">Date of Birth:</label>
-        <input id="dob" class="w-25" type="date" formControlName="dob" />
-        <button class="btn btn-outline-primary btn-sm" (click)="setDob()">Set Value</button>
+    <div class="d-flex flex-column gap-1 w-100">
+            <label for="dob">Date of Birth:</label>
+        <input id="dob" class="p-1 border" type="date" formControlName="dob" />
+        <div [ngClass]="{'visible': dob?.dirty && dob?.errors, 'invisible': dob?.pristine || dob?.valid}">
+            <label class="text-danger" style="font-size: 12px;" *ngIf="dob?.pristine || dob?.valid">{{defaultMsg}}</label>
+            <label class="text-danger" style="font-size: 12px;" *ngIf=" dob?.dirty && dob?.errors?.['required']">
+                Date of birth is required.
+            </label>
+        </div>
     </div>
-    <div class="d-flex gap-3 w-100 m-1 align-items-center bg-warning">
-        <label for="language" style="width: 12rem;">Language:</label>
-        <input id="language" class="w-25" type="date" formControlName="language" />
-        <button class="btn btn-outline-primary btn-sm" (click)="setLanguage()">Set Value</button>
+    <div class="d-flex flex-column gap-1 w-100">        
+        <label for="language">Language:</label>
+        <select id="language" class="p-1 border" formControlName="language">
+            <option value=""></option>
+            <option value="english">English</option>
+            <option value="hindi">Hindi</option>
+            <option value="marathi">Marathi</option>
+            <option value="bengali">Bengali</option>
+        </select>
+        <div [ngClass]="{'visible': language?.dirty && language?.errors, 'invisible': language?.pristine || language?.valid}">
+            <label class="text-danger" style="font-size: 12px;" *ngIf="language?.pristine || language?.valid">{{defaultMsg}}</label>
+            <label class="text-danger" style="font-size: 12px;" *ngIf=" language?.dirty && language?.errors?.['required']">
+                Language is required.
+            </label>
+        </div>
+    </div>
+    <div class="d-flex flex-column gap-1 w-100">        
+        <label for="gender">Gender:</label>
+        <div class="d-flex flex-column flex-sm-row justify-content-between bg-warning">
+            <div class="d-flex gap-2 align-items-center">
+                <input id="gender0" class="p-1 border" type="radio" value="male" formControlName="gender">
+                <label for="gender0">Male</label>
+            </div>
+            <div class="d-flex gap-2 align-items-center">
+                <input id="gender1" class="p-1 border" type="radio" value="female" formControlName="gender">
+                <label for="gender1">Female</label>
+            </div>
+            <div class="d-flex gap-2 align-items-center">
+                <input id="gender2" class="p-1 border" type="radio" value="other" formControlName="gender">
+                <label for="gender2">Other</label>
+            </div>
+        </div>
+        <div [ngClass]="{'visible': language?.dirty && language?.errors, 'invisible': language?.pristine || language?.valid}">
+            <label class="text-danger" style="font-size: 12px;" *ngIf="language?.pristine || language?.valid">{{defaultMsg}}</label>
+            <label class="text-danger" style="font-size: 12px;" *ngIf=" language?.dirty && language?.errors?.['required']">
+                Language is required.
+            </label>
+        </div>
     </div>
 </form>

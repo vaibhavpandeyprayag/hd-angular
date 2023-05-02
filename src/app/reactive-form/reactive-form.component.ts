@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -8,12 +8,16 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class ReactiveFormComponent {
   myForm = new FormGroup({
-    name: new FormControl(""),
-    email: new FormControl(""),
-    dob: new FormControl(""),
-    language: new FormControl(""),
+    name: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    email: new FormControl("", [Validators.required, Validators.email]),
+    dob: new FormControl("", Validators.required),
+    language: new FormControl("", Validators.required),
   })
-  
+  get name() { return this.myForm.get('name'); }
+  get email() { return this.myForm.get('email'); }
+  get dob() { return this.myForm.get('dob'); }
+  get language() { return this.myForm.get('language'); }
+
   languages: Object[] = [
     {
       value: 0,
@@ -33,6 +37,8 @@ export class ReactiveFormComponent {
     },
   ]
 
+  defaultMsg = "Default Invisible Message."
+
   setName() {
     this.myForm.controls.name.setValue("Hello");
   }
@@ -43,6 +49,6 @@ export class ReactiveFormComponent {
     this.myForm.controls.dob.setValue("2002-02-11");
   }
   setLanguage() {
-    this.myForm.controls.language.setValue("0");
+    this.myForm.controls.language.setValue("english");
   }
 }

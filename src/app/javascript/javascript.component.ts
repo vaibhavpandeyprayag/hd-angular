@@ -58,17 +58,35 @@ export class JavascriptComponent {
   }
 
   quote = "";
-  timer = 3;
-  intervalId: any;
+  awaitTimeoutPromise = (delay: number) => new Promise(resolve => setTimeout(resolve, delay));
   showQuote() {
-    this.intervalId = setInterval(() => {
-      this.quote = "Loading..." + this.timer;
-      this.timer--;
-      console.log(this.timer);
-    }, 1000)
-    setTimeout(() => {
-      clearInterval(this.intervalId);
-      this.quote = "Some things are better left unsaid."
-    }, 4000);
+    this.awaitTimeoutPromise(3000).then(() => this.quote = "Some things are better left unsaid.");
+  }
+
+  endsStatus = "";
+  checkBothEnds(val: string) {
+    if (val.startsWith("a") && val.endsWith("t")) this.endsStatus = "Input starts with 'a' and ends with 't'";
+    else if (val.startsWith("a")) this.endsStatus = "Input starts with 'a' but does not end with 't'";
+    else if (val.endsWith("t")) this.endsStatus = "Input does not start with 'a' but ends with 't'";
+    else this.endsStatus = "Input neither starts with 'a' nor ends with 't'";
+  }
+
+  searchStatus = "";
+  search(val: string) {
+    function myFunction(value: number, index: number, array: Array<number>) {
+      return value === +val;
+    }
+    const numbers = [4, 9, 16, 25, 29];
+    let found = numbers.find(myFunction);
+    let ind = undefined;
+    if (found != undefined) {
+      ind = numbers.findIndex(myFunction);
+      this.searchStatus = "Number found at index " + ind;
+    }
+    else this.searchStatus = "Number not found."
+    
+    
+    
+    
   }
 }

@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="container">
     <h1 class="mb-5">JavaScript</h1>
     <div class="letKeyword ">
@@ -135,12 +136,39 @@
             <p>Used promises to display quote after 3 seconds.</p>
             <pre>               
     quote = "";
+    awaitTimeoutPromise = (delay: number) => new Promise(resolve => setTimeout(resolve, delay));
     showQuote() &lbrace;
-        this.quote = "Loading..."
-        const promise = new Promise((resolve, reject) => &lbrace;
-        setTimeout(() => this.quote = "Somethings are better left unsaid.", 3000);
-        &rbrace;)
+        this.awaitTimeoutPromise(3000).then(() => this.quote = "Some things are better left unsaid.");
     &rbrace;
             </pre>
+    </div>
+    <div class="startsWithendsWith ">
+        <h4>startsWith and endsWith</h4>
+            <div class="input-group w-75 mb-2">
+                <span class="input-group-text">Input</span>
+                <input type="text" class="form-control" #sentence (input)="checkBothEnds(sentence.value)" />
+            </div>
+                
+            <label>{{endsStatus}}</label>            
+            <pre>               
+    endsStatus = "";
+    checkBothEnds(val: string) &lbrace;
+        if (val.startsWith("a") && val.endsWith("t")) this.endsStatus = "Input starts with 'a' and ends with 't'";
+        else if (val.startsWith("a")) this.endsStatus = "Input starts with 'a' but does not end with 't'";
+        else if (val.endsWith("t")) this.endsStatus = "Input does not start with 'a' but ends with 't'";
+        else this.endsStatus = "Input neither starts with 'a' nor ends with 't'";
+    &rbrace;
+            </pre>
+    </div>
+    <div class="findAndFindIndex">
+        <h4>find and findIndex</h4>
+        <div>
+            <h6>numbers = [4, 9, 16, 25, 29]</h6>
+            <div class="input-group w-75 mb-2">
+                <span class="input-group-text">Find</span>
+                <input type="number" class="form-control" #number (input)="search(number.value)" />
+            </div>
+            <label>{{searchStatus}}</label>
+        </div>
     </div>
 </div>
