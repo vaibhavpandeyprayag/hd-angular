@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -7,16 +8,23 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./reactive-form.component.css']
 })
 export class ReactiveFormComponent {
+  constructor(private http: HttpClient) { }
+
+
   myForm = new FormGroup({
     name: new FormControl("", [Validators.required, Validators.minLength(3)]),
     email: new FormControl("", [Validators.required, Validators.email]),
     dob: new FormControl("", Validators.required),
     language: new FormControl("", Validators.required),
+    gender: new FormControl("", Validators.required),
+    phone: new FormControl("", [Validators.required, Validators.minLength(10), Validators.pattern("[6-9][0-9]*")]),
   })
   get name() { return this.myForm.get('name'); }
   get email() { return this.myForm.get('email'); }
   get dob() { return this.myForm.get('dob'); }
   get language() { return this.myForm.get('language'); }
+  get gender() { return this.myForm.get('gender'); }
+  get phone() { return this.myForm.get('phone'); }
 
   languages: Object[] = [
     {
@@ -39,16 +47,17 @@ export class ReactiveFormComponent {
 
   defaultMsg = "Default Invisible Message."
 
-  setName() {
-    this.myForm.controls.name.setValue("Hello");
-  }
-  setEmail() {
-    this.myForm.controls.email.setValue("vaibhavpandeyprayag@gmail.com");
-  }
-  setDob() {
-    this.myForm.controls.dob.setValue("2002-02-11");
-  }
-  setLanguage() {
-    this.myForm.controls.language.setValue("english");
+  onSubmit() {
+    console.log({name: this.name, email: this.email, dob: this.dob, language: this.language, gender: this.gender, phone: this.phone});
+    const req = this.http.post("http://localhost:3000/sendmail", 
+    {
+      name: this.name?.value,
+      email: this.email?.value,
+      dob: this.dob?.value,
+      language: this.language?.value,
+      gender: this.gender?.value,
+      phone: this.phone?.value
+    });
+    req.subscribe();
   }
 }

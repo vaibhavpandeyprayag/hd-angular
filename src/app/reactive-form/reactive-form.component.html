@@ -4,8 +4,10 @@
     <pre>{{myForm.controls.email.value}}</pre>
     <pre>{{myForm.controls.dob.value}}</pre>
     <pre>{{myForm.controls.language.value}}</pre>
+    <pre>{{myForm.controls.gender.value}}</pre>
+    <pre>{{myForm.controls.phone.value}}</pre>
 </div>
-<form class="container" [formGroup]="myForm">
+<form class="container d-flex flex-column gap-2" [formGroup]="myForm" (ngSubmit)="onSubmit()">
     <div class="d-flex flex-column gap-1 w-100">
         <label for="name">Name:</label>   
         <input id="name" class="p-1 border" type="text" formControlName="name" />
@@ -60,7 +62,7 @@
     </div>
     <div class="d-flex flex-column gap-1 w-100">        
         <label for="gender">Gender:</label>
-        <div class="d-flex flex-column flex-sm-row justify-content-between bg-warning">
+        <div class="d-flex flex-column flex-sm-row justify-content-between w-50">
             <div class="d-flex gap-2 align-items-center">
                 <input id="gender0" class="p-1 border" type="radio" value="male" formControlName="gender">
                 <label for="gender0">Male</label>
@@ -74,11 +76,31 @@
                 <label for="gender2">Other</label>
             </div>
         </div>
-        <div [ngClass]="{'visible': language?.dirty && language?.errors, 'invisible': language?.pristine || language?.valid}">
-            <label class="text-danger" style="font-size: 12px;" *ngIf="language?.pristine || language?.valid">{{defaultMsg}}</label>
-            <label class="text-danger" style="font-size: 12px;" *ngIf=" language?.dirty && language?.errors?.['required']">
-                Language is required.
+        <div [ngClass]="{'visible': gender?.dirty && gender?.errors, 'invisible': gender?.pristine || gender?.valid}">
+            <label class="text-danger" style="font-size: 12px;" *ngIf="gender?.pristine || gender?.valid">{{defaultMsg}}</label>
+            <label class="text-danger" style="font-size: 12px;" *ngIf=" gender?.dirty && gender?.errors?.['required']">
+                Gender is required.
             </label>
         </div>
+    </div>
+    <div class="d-flex flex-column gap-1 w-100">
+        <label for="phone">Phone:</label>
+        <input id="phone" class="p-1 border" type="text" maxlength="10" formControlName="phone" />
+        <div class="d-flex gap-1" [ngClass]="{'visible': phone?.dirty && phone?.errors, 'invisible': phone?.pristine || phone?.valid}">
+            <label class="text-danger" style="font-size: 12px;" *ngIf="phone?.pristine || phone?.valid">{{defaultMsg}}</label>
+            <label class="text-danger" style="font-size: 12px;" *ngIf=" phone?.dirty && phone?.errors?.['required']">
+                Phone number is required.
+            </label>
+            <label class="text-danger" style="font-size: 12px;" *ngIf=" phone?.dirty && phone?.errors?.['minlength']">
+                Phone number requires 10 digits. 
+            </label>
+            <label class="text-danger" style="font-size: 12px;" *ngIf=" phone?.dirty && phone?.errors?.['pattern']">
+                Phone number can start only with 6,7,8 or 9.
+            </label>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center gap-3">
+        <button class="btn btn-primary" type="submit" >Submit</button>
+        <input class="btn btn-light" type="reset"/>
     </div>
 </form>

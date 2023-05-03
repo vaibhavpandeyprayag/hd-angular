@@ -28,6 +28,7 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { JavascriptComponent } from './javascript/javascript.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { JavascriptComponent } from './javascript/javascript.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     CommonModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
