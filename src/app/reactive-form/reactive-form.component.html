@@ -1,14 +1,14 @@
 <app-header></app-header>
-<div style="position: fixed; right: 2rem;">
-    <pre>{{myForm.controls.name.value}}</pre>
-    <pre>{{myForm.controls.email.value}}</pre>
-    <pre>{{myForm.controls.dob.value}}</pre>
-    <pre>{{myForm.controls.language.value}}</pre>
-    <pre>{{myForm.controls.gender.value}}</pre>
-    <pre>{{myForm.controls.phone.value}}</pre>
-</div>
+<!-- <div style="position: fixed; right: 2rem;">
+    <pre>{{name?.value}}</pre>
+    <pre>{{email?.value}}</pre>
+    <pre>{{dob?.value}}</pre>
+    <pre>{{language?.value}}</pre>
+    <pre>{{gender?.value}}</pre>
+    <pre>{{phone?.value}}</pre>
+</div> -->
 <form class="container d-flex flex-column gap-2" [formGroup]="myForm" (ngSubmit)="onSubmit()">
-    <div class="d-flex flex-column gap-1 w-100">
+    <div class="d-flex flex-column w-100">
         <label for="name">Name:</label>   
         <input id="name" class="p-1 border" type="text" formControlName="name" />
         <div [ngClass]="{'visible': name?.dirty && name?.errors, 'invisible': name?.pristine || name?.valid}">

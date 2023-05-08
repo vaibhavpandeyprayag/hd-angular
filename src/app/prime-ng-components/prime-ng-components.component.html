@@ -1,0 +1,81 @@
+<app-header></app-header>
+<div style="position: fixed; right: 3rem;">
+    <pre>Rating: {{rating}}</pre>
+</div>
+<div class="container d-flex flex-column gap-5">
+    <div>
+        <h3>Table</h3>
+        <p-table [value]="products" responsiveLayout="stack" styleClass="p-datatable-gridlines" [breakpoint]="'960px'">
+            <ng-template  pTemplate="header">
+                <tr>
+                    <th *ngFor="let col of columns">{{col}}</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+                <tr>
+                    <td><span class="p-column-title">id</span>{{product.id}}</td>
+                    <td><span class="p-column-title">Name</span>{{product.Name}}</td>
+                    <td><span class="p-column-title">Price</span>{{product.Price}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+    <div>
+        <h3>Progressbar</h3>
+        <div class="d-flex flex-column gap-3">
+            <p-progressBar [value]="25"></p-progressBar>        
+            <p-progressBar [value]="50"></p-progressBar>        
+            <p-progressBar [value]="75"></p-progressBar>        
+            <p-progressBar [value]="100"></p-progressBar>        
+        </div>
+    </div>
+    <div>
+        <h3>Checkbox</h3>
+        <div class="d-flex gap-5">
+            <div class="d-flex align-items-center gap-2">
+                <p-checkbox name="group1" value="male" inputId="male"></p-checkbox>
+                <label for="male">Male</label>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+                <p-checkbox name="group1" value="female" inputId="female"></p-checkbox>
+                <label for="female">Female</label>
+            </div>        
+            <div class="d-flex align-items-center gap-2">
+                <p-checkbox name="group1" value="other" inputId="other"></p-checkbox>
+                <label for="other">Other</label>
+            </div>    
+        </div>
+    </div>
+    <div>
+        <h3>Rating</h3>
+        <p-rating [(ngModel)]="rating" [stars]="5"></p-rating>
+    </div>
+    <div>
+        <h3>Tree</h3>
+        <div class="d-flex gap-3 mb-3">
+            <button class="btn btn-primary btn-sm" label="Expand all" (click)="expandAll()">Expand All</button>
+            <button class="btn btn-primary btn-sm" label="Collapse all" (click)="collapseAll()">Collapse All</button>
+        </div>
+        <p-tree [value]="files"></p-tree>
+    </div>
+    <div>
+        <h3>Drag & Drop</h3>
+        <div class="d-flex flex-column gap-5">
+            <div class="p-2">
+                <ul class="list-group d-flex w-50 gap-2">
+                    <li *ngFor="let product of availableProducts" class="list-group-item " pDraggable (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
+                        {{product.name}}
+                    </li>
+                </ul>
+            </div>
+            <div class="p-2" pDroppable (onDrop)="drop()">
+                <p class="text-center">Drop Zone</p>
+                <ul class="list-group d-flex w-50 gap-2" *ngIf="selectedProducts" >
+                    <li *ngFor="let product of selectedProducts" class="list-group-item ">
+                        {{product.name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

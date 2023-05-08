@@ -29,6 +29,15 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { JavascriptComponent } from './javascript/javascript.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PrimeNgTableComponent } from './prime-ng-components/prime-ng-components.component';
+import { TableModule } from 'primeng/table';
+import { ProgressBarModule } from 'primeng/progressbar';
+// For dynamic progressbar demo
+import { ToastModule } from 'primeng/toast';
+import { CheckboxModule } from 'primeng/checkbox';
+import { RatingModule } from 'primeng/rating';
+import { TreeModule } from 'primeng/tree';
+import { DragDropModule } from 'primeng/dragdrop';
 
 @NgModule({
   declarations: [
@@ -52,6 +61,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormComponent,
     CarouselComponent,
     JavascriptComponent,
+    PrimeNgTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +74,13 @@ import { HttpClientModule } from '@angular/common/http';
     CarouselModule,
     NgxUiLoaderModule,
     NgxUiLoaderRouterModule,
+    TableModule,
+    ProgressBarModule,
+    ToastModule,
+    CheckboxModule,
+    RatingModule,
+    TreeModule,
+    DragDropModule,
     RouterModule.forRoot([
       {path: '', redirectTo: '/home', pathMatch: 'full'},
       {path: 'home', component: HomeComponent},
@@ -79,7 +96,8 @@ import { HttpClientModule } from '@angular/common/http';
       {path: 'formtable', component: FormTableComponent},
       {path: 'carousel', component: CarouselComponent},
       {path: 'js', component: JavascriptComponent},
-      {path: 'reactiveform', component: ReactiveFormComponent}
+      {path: 'reactiveform', component: ReactiveFormComponent},
+      {path: 'primengcomponents', component: PrimeNgTableComponent}
     ]),
     AppRoutingModule
   ],

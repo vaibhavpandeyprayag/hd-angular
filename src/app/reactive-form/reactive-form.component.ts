@@ -8,7 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./reactive-form.component.css']
 })
 export class ReactiveFormComponent {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
 
   myForm = new FormGroup({
@@ -18,7 +18,7 @@ export class ReactiveFormComponent {
     language: new FormControl("", Validators.required),
     gender: new FormControl("", Validators.required),
     phone: new FormControl("", [Validators.required, Validators.minLength(10), Validators.pattern("[6-9][0-9]*")]),
-  })
+  });
   get name() { return this.myForm.get('name'); }
   get email() { return this.myForm.get('email'); }
   get dob() { return this.myForm.get('dob'); }
@@ -48,6 +48,15 @@ export class ReactiveFormComponent {
   defaultMsg = "Default Invisible Message."
 
   onSubmit() {
+    if (this.myForm.invalid) {
+      this.name?.markAsDirty();
+      this.email?.markAsDirty();
+      this.dob?.markAsDirty();
+      this.language?.markAsDirty();
+      this.gender?.markAsDirty();
+      this.phone?.markAsDirty();
+      return;
+    } 
     console.log({name: this.name, email: this.email, dob: this.dob, language: this.language, gender: this.gender, phone: this.phone});
     const req = this.http.post("http://localhost:3000/sendmail", 
     {
