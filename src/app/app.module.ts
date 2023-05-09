@@ -38,6 +38,10 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { RatingModule } from 'primeng/rating';
 import { TreeModule } from 'primeng/tree';
 import { DragDropModule } from 'primeng/dragdrop';
+import { ChartModule } from 'primeng/chart';
+import { DockModule } from 'primeng/dock';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { JQueryComponent } from './j-query/j-query.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +66,7 @@ import { DragDropModule } from 'primeng/dragdrop';
     CarouselComponent,
     JavascriptComponent,
     PrimeNgTableComponent,
+    JQueryComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,6 +86,9 @@ import { DragDropModule } from 'primeng/dragdrop';
     RatingModule,
     TreeModule,
     DragDropModule,
+    ChartModule,
+    DockModule,
+    RadioButtonModule,
     RouterModule.forRoot([
       {path: '', redirectTo: '/home', pathMatch: 'full'},
       {path: 'home', component: HomeComponent},
@@ -97,7 +105,8 @@ import { DragDropModule } from 'primeng/dragdrop';
       {path: 'carousel', component: CarouselComponent},
       {path: 'js', component: JavascriptComponent},
       {path: 'reactiveform', component: ReactiveFormComponent},
-      {path: 'primengcomponents', component: PrimeNgTableComponent}
+      {path: 'primengcomponents', component: PrimeNgTableComponent},
+      {path: 'jquery', component: JQueryComponent},
     ]),
     AppRoutingModule
   ],

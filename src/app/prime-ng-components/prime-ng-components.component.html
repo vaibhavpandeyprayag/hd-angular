@@ -1,9 +1,9 @@
 <app-header></app-header>
-<div style="position: fixed; right: 3rem;">
+<!-- <div style="position: fixed; right: 3rem;">
     <pre>Rating: {{rating}}</pre>
-</div>
-<div class="container d-flex flex-column gap-5">
-    <div>
+</div> -->
+<div class="container d-flex flex-column gap-5 pt-5 pb-5">
+    <div id="table">
         <h3>Table</h3>
         <p-table [value]="products" responsiveLayout="stack" styleClass="p-datatable-gridlines" [breakpoint]="'960px'">
             <ng-template  pTemplate="header">
@@ -20,7 +20,7 @@
             </ng-template>
         </p-table>
     </div>
-    <div>
+    <div id="progressbar">
         <h3>Progressbar</h3>
         <div class="d-flex flex-column gap-3">
             <p-progressBar [value]="25"></p-progressBar>        
@@ -29,7 +29,7 @@
             <p-progressBar [value]="100"></p-progressBar>        
         </div>
     </div>
-    <div>
+    <div id="checkbox">
         <h3>Checkbox</h3>
         <div class="d-flex gap-5">
             <div class="d-flex align-items-center gap-2">
@@ -46,36 +46,68 @@
             </div>    
         </div>
     </div>
-    <div>
+    <div id="rating">
         <h3>Rating</h3>
         <p-rating [(ngModel)]="rating" [stars]="5"></p-rating>
     </div>
-    <div>
+    <div id="tree">
         <h3>Tree</h3>
         <div class="d-flex gap-3 mb-3">
-            <button class="btn btn-primary btn-sm" label="Expand all" (click)="expandAll()">Expand All</button>
-            <button class="btn btn-primary btn-sm" label="Collapse all" (click)="collapseAll()">Collapse All</button>
+            <button pButton class="btn btn-primary btn-sm" label="Expand all" (click)="expandAll()">Expand All</button>
+            <button pButton class="btn btn-primary btn-sm" label="Collapse all" (click)="collapseAll()">Collapse All</button>
         </div>
         <p-tree [value]="files"></p-tree>
     </div>
-    <div>
+    <div id="dragAndDrop">
         <h3>Drag & Drop</h3>
-        <div class="d-flex flex-column gap-5">
-            <div class="p-2">
-                <ul class="list-group d-flex w-50 gap-2">
-                    <li *ngFor="let product of availableProducts" class="list-group-item " pDraggable (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
+        <div class="d-flex w-100 justify-content-between gap-5">
+            <div class="w-50 border border-primary shadow-lg">
+                <h6 class="text-center mt-2">Drag from here</h6>
+                <ul class="list-group">
+                    <li *ngFor="let product of availableProducts" class="list-group-item p-2 m-1 shadow-sm border" style="cursor:move;" pDraggable (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
                         {{product.name}}
                     </li>
                 </ul>
             </div>
-            <div class="p-2" pDroppable (onDrop)="drop()">
-                <p class="text-center">Drop Zone</p>
-                <ul class="list-group d-flex w-50 gap-2" *ngIf="selectedProducts" >
-                    <li *ngFor="let product of selectedProducts" class="list-group-item ">
+            <div class="w-50 border border-primary shadow-lg" pDroppable (onDrop)="drop()">
+                <h6 class="text-center mt-2">Drop Zone</h6>
+                <ul class="list-group" *ngIf="selectedProducts" >
+                    <li *ngFor="let product of selectedProducts" class="list-group-item p-2 m-1 shadow-sm border">
                         {{product.name}}
                     </li>
                 </ul>
             </div>
+        </div>
+    </div>
+    <div id="charts" class="d-flex flex-column gap-5">
+        <div>
+            <h3>Bar Chart</h3>
+            <div class="card">
+                <p-chart type="bar" [data]="barData" [options]="barOptions"></p-chart>
+            </div>
+        </div>
+        <div>
+            <h3>Pie Chart</h3>
+            <div class="d-flex justify-content-center border p-2">
+                <p-chart class="w-50" type="pie" [data]="pieData" [options]="pieOptions"></p-chart>
+            </div>
+        </div>
+        <div>
+            <h3>Line Chart</h3>
+            <div class="card">
+                <p-chart type="line" [data]="lineData" [options]="lineOptions"></p-chart>
+            </div>
+        </div>
+    </div>
+    <div id="dock" class="position-fixed bottom-50 end-0">         
+        <div>
+            <p-dock [model]="items" [position]="position">
+                <ng-template pTemplate="item" let-item>
+                    <a fragment="item.label" (click)="navigateToSection(item.label)" class="d-flex border rounded p-1" style="width: 3rem; height: 3rem; cursor: pointer;">
+                        <img [src]="item.icon" [alt]="item.label" width="100%" />
+                    </a>
+                </ng-template>
+            </p-dock>
         </div>
     </div>
 </div>
