@@ -1,14 +1,50 @@
 <app-header></app-header>
-<div class="container d-flex flex-column gap-5 mt-5">
+<div class="container d-flex flex-column gap-5 mt-5 mb-5">
     <h1>jQuery</h1>
-    <div class="d-flex justify-content-between align-items-center">
+    <div class="d-flex justify-content-between align-items-end">
         <div>
             <label>Click the button to change text.</label>
-            <h4 id="subheading1">We are using JavaScript so far.</h4>
+            <h4 id="subheading1">jQuery is a fast, lightweight and feature-rich library of JavaScript.</h4>
         </div>
         <button id="changeSubheading1" class="btn btn-primary">Change</button>
     </div>
     <div>
-
+        <div id="alert" class="alert alert-primary" role="alert">
+            A simple alert—check it out!
+        </div>
+        <div class="d-flex gap-2 justify-content-end">
+            <div id="primaryBtn" class="btn btn-primary btn-sm">Primary</div>
+            <div id="secondaryBtn" class="btn btn-secondary btn-sm">Secondary</div>
+            <div id="successBtn" class="btn btn-success btn-sm">Success</div>
+            <div id="dangerBtn" class="btn btn-danger btn-sm">Danger</div>
+            <div id="darkBtn" class="btn btn-dark btn-sm">Dark</div>
+        </div>
+    </div>
+    <div>
+        <div class="d-flex align-items-center gap-5">
+            <h3>fadeToggle</h3>
+            <button id="togglePoem" class="btn btn-dark btn-sm ">Toggle Poem</button>
+        </div>
+        <div id="poemCard" class="d-flex flex-row align-items-stretch" style="height: 500px;">
+            <div id="poem" class="alert alert-primary m-0 w-50" role="alert">
+                Whose woods these are I think I know.<br>
+                His house is in the village though;<br>
+                He will not see me stopping here<br>
+                To watch his woods fill up with snow.<br> 
+                My little horse must think it queer<br>
+                To stop without a farmhouse near   <br>
+                Between the woods and frozen lake<br>
+                The darkest evening of the year.   <br>
+                <br>
+                He gives his harness bells a shake<br>
+                To ask if there is some mistake.   <br>
+                The only other sound’s the sweep<br>
+                Of easy wind and downy flake.   <br>
+                The woods are lovely, dark and deep,<br>
+                But I have promises to keep,   <br>
+                And miles to go before I sleep,
+            </div>
+            <img id="poemImg" class="w-50" src="https://f4.bcbits.com/img/a0339760040_10.jpg" />
+        </div>
     </div>
 </div>
