@@ -42,6 +42,7 @@ import { ChartModule } from 'primeng/chart';
 import { DockModule } from 'primeng/dock';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { JQueryComponent } from './j-query/j-query.component';
+import { ProductSearchComponent } from './product-search/product-search.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { JQueryComponent } from './j-query/j-query.component';
     JavascriptComponent,
     PrimeNgTableComponent,
     JQueryComponent,
+    ProductSearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -107,6 +109,7 @@ import { JQueryComponent } from './j-query/j-query.component';
       {path: 'reactiveform', component: ReactiveFormComponent},
       {path: 'primengcomponents', component: PrimeNgTableComponent},
       {path: 'jquery', component: JQueryComponent},
+      {path: 'productsearch', component: ProductSearchComponent},
     ]),
     AppRoutingModule
   ],

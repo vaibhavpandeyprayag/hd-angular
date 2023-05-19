@@ -1,0 +1,30 @@
+<app-header></app-header>
+<form class="container mt-5">
+    <div class="form-group d-flex gap-1">
+        <input class="form-control" placeholder="Search item" [value]="searchInput" (input)="filterItems($event)" />
+        <button class="btn btn-primary">Search</button>
+    </div>
+    <div class="card p-2" *ngIf="showSuggestions">
+        <label class="text-secondary">Suggestions</label>
+        <div class="d-flex flex-wrap mt-1 mb-2" >
+            <button class="btn btn-sm btn-outline-success border-0" (click)="openItem($event)" *ngFor="let item of suggestedItems">{{item}}</button>
+            <button class="btn btn-sm text-primary border-0" *ngIf="noSuggestions">No suggestions, want to see other items?</button>
+        </div>
+        <label class="text-secondary">Top Categories</label>
+        <div class="d-flex flex-wrap gap-2 mt-1 mb-2">
+            <div class="container">
+                <div class="row d-flex gap-2">
+                    <button class="col p-1 bg-light border border-5" *ngFor="let category of topCategories">
+                        <img style="width: 4rem; height: 4rem;" [src]="category.imgUrl" />
+                        <label class="w-100" style="cursor: pointer;">{{category.name}}</label>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <label class="text-secondary">Recent</label>
+        <div class="d-flex flex-wrap mt-1">
+            <button class="btn btn-sm btn-outline-dark border-0" *ngFor="let historyItem of searchHistory">{{historyItem}}</button>
+            <small *ngIf="noHistoryFound" class="">No search history found</small>
+        </div>
+    </div>
+</form>
