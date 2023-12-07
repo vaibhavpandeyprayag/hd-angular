@@ -43,6 +43,7 @@ import { DockModule } from 'primeng/dock';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { JQueryComponent } from './j-query/j-query.component';
 import { ProductSearchComponent } from './product-search/product-search.component';
+import { FileReadComponent } from './file-read/file-read.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { ProductSearchComponent } from './product-search/product-search.componen
     PrimeNgTableComponent,
     JQueryComponent,
     ProductSearchComponent,
+    FileReadComponent,
   ],
   imports: [
     BrowserModule,
@@ -110,6 +112,7 @@ import { ProductSearchComponent } from './product-search/product-search.componen
       {path: 'primengcomponents', component: PrimeNgTableComponent},
       {path: 'jquery', component: JQueryComponent},
       {path: 'productsearch', component: ProductSearchComponent},
+      {path: 'fileread', component: FileReadComponent}
     ]),
     AppRoutingModule
   ],

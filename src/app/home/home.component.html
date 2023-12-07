@@ -1,4 +1,11 @@
 <app-header></app-header>
 <div>
     <h1>Home Page rendered.</h1>
+    <div class="m-3 fw-bold">
+        Status: {{networkStatus ? "Online" : "Offline"}}
+    </div>
+    <div class="d-flex m-2 gap-2">
+        <button class="btn btn-primary" (click)="addRecord()">Add Record</button>
+        <button class="btn btn-primary" (click)="getAllRecords()">Get All Records</button>
+    </div>
 </div>

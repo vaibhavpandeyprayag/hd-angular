@@ -24,7 +24,7 @@
         <label class="text-secondary">Recent</label>
         <div class="d-flex flex-wrap mt-1">
             <button class="btn btn-sm btn-outline-dark border-0" *ngFor="let historyItem of searchHistory">{{historyItem}}</button>
-            <small *ngIf="noHistoryFound" class="">No search history found</small>
+            <small *ngIf="noHistoryFound">No search history found</small>
         </div>
     </div>
 </form>

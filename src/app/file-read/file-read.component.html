@@ -1,0 +1,7 @@
+<app-header></app-header>
+<h1>Read pdf, word, text files.</h1>
+<div class="d-flex gap-4 m-4">
+    <label>Open a file: </label>
+    <input class="form-control" type="file" id="fileInput" (change)="handleFileSelect($event)" accept=".pdf,.docx,.txt" />
+</div>
+<textarea class="w-100" id="fileContent" [value]="fileContent"></textarea>
