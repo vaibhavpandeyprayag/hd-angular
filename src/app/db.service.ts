@@ -1,34 +1,66 @@
 import { Injectable } from '@angular/core';
 import Dexie from "dexie";
 
-interface DataInterface {
-  id?: number,
-  name: string,
-  age: number
+
+interface InboundLogInterface {
+  tableName: string
 }
 
 @Injectable({
   providedIn: 'root'
 })
-export class DbService extends Dexie {
-  dbStore: Dexie.Table<DataInterface, number>;
-
+export class DbService extends Dexie {  
+  myTable: Dexie.Table<any, number>;
+  myTableSyncStore: Dexie.Table<any, number>;
+  public inboundLog: Dexie.Table<InboundLogInterface, number>;
   constructor() {     
     super('dexieDB');
 
     this.version(1).stores({
-      myDatabase: '++id, name, age',      
+      inboundLog: '++id, tableName',
+      myTable: '++key, id, name, age',
+      myTableSyncStore: '++key, row, operation'      
     });
+    
 
-    this.dbStore = this.table('myDatabase');
+    this.myTable = this.table('myTable');
+    this.inboundLog = this.table('inboundLog');
+    this.myTableSyncStore = this.table('myTableSyncStore')
   }
   
   
-  addData(data: DataInterface): Promise<number> {
-    return this.dbStore.add(data);
+  loadData(data: any): Promise<number> {
+    return this.myTable.add({row: data});
   }
 
-  getAllData(): Promise<DataInterface[]> {
-    return this.dbStore.toArray();
+  insertSyncData(data: any): Promise<number> {
+    return this.myTableSyncStore.add({ row: data, operation: "insertion"})
+  }
+
+  async updateSyncData(id: number, data: any): Promise<number> {
+    return this.myTableSyncStore.add({row: data, operation: "updation"});
+  }
+
+  async deleteSyncData(id: number) {    
+    return this.myTableSyncStore.add({row: {id: id}, operation: "deletion"})
+  }
+
+  addInboundLog(data: InboundLogInterface): Promise<number> {
+    return this.inboundLog.add(data);
+  }
+
+  getAllData(): Promise<any[]> {
+    return this.myTable.toArray();
+  }
+  getAllSyncData(): Promise<any[]> {
+    return this.myTableSyncStore.toArray();
+  }
+
+  clearStores() {
+    return Promise.all([this.inboundLog.clear(), this.myTable.clear()]);
+  }
+
+  deleteDB() {
+    return Dexie.delete("dexieDB");
   }
 }
